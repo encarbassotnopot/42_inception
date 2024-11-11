@@ -9,9 +9,31 @@ services:
       - "443:443"
     volumes:
       - web-files:/home/ecoma-ba/data
+    secrets:
+      - server.crt
+      - server.key
+  wordpress:
+    build: ./wordpress
+    env_file: .env
+    networks:
+      - my_net
+    volumes:
+      - web-files:/home/ecoma-ba/data
+  mariadb:
+    build: ./mariadb
+    env_file: .env
+    networks:
+      - my_net
+    volumes:
+      - db-data:/home/ecoma-ba/data
 networks:
   my_net:
       driver: bridge # is the default option anyway, but yeah
 volumes:
   web-files:
   db-data:
+secrets:
+  server.crt:
+    file: ./secrets/server.crt
+  server.key:
+    file: ./secrets/server.key
