@@ -1,0 +1,18 @@
+name: inception
+services:
+  nginx:
+    build: ./nginx
+    env_file: .env
+    networks:
+      - my_net
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - web-files:/home/ecoma-ba/data
+networks:
+  my_net:
+      driver: bridge # is the default option anyway, but yeah
+volumes:
+  web-files:
+  db-data:
