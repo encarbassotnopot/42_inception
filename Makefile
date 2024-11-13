@@ -1,9 +1,14 @@
-all: build run
-
+SHELL = bash
 SRC = $(CURDIR)/srcs/
 FILE = $(SRC)/docker-compose.yml
-DC = sudo docker-compose -f $(FILE)
+DC = $(SUDO) docker-compose -f $(FILE)
 SECRETS = $(SRC)/secrets/
+
+ifeq (,$(findstring 42barcelona.com, $(shell hostname)))
+	SUDO = sudo
+endif
+
+all: build run
 
 build: certs
 	$(DC) build
