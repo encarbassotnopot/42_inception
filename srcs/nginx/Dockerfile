@@ -5,4 +5,5 @@ RUN apk add --no-cache nginx
 COPY ./files/nginx.conf /etc/nginx/nginx.conf
 COPY ./files/index.html /www/index.html
 EXPOSE 443
-ENTRYPOINT ["nginx"]
+
+CMD ["nginx"]

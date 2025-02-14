@@ -20,13 +20,13 @@
 
 // ** Database settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
-define( 'DB_NAME', 'wordpress' );
+define( 'DB_NAME', getenv('WP_DB_NAME') );
 
 /** Database username */
-define( 'DB_USER', 'wp_user' );
+define( 'DB_USER', getenv('WP_DB_USER') );
 
 /** Database password */
-define( 'DB_PASSWORD', 'password_here' );
+define( 'DB_PASSWORD', getenv('WP_DB_PASSWORD') );
 
 /** Database hostname */
 define( 'DB_HOST', 'localhost' );
@@ -48,14 +48,14 @@ define( 'DB_COLLATE', '' );
  *
  * @since 2.6.0
  */
-define( 'AUTH_KEY',         'put your unique phrase here' );
-define( 'SECURE_AUTH_KEY',  'put your unique phrase here' );
-define( 'LOGGED_IN_KEY',    'put your unique phrase here' );
-define( 'NONCE_KEY',        'put your unique phrase here' );
-define( 'AUTH_SALT',        'put your unique phrase here' );
-define( 'SECURE_AUTH_SALT', 'put your unique phrase here' );
-define( 'LOGGED_IN_SALT',   'put your unique phrase here' );
-define( 'NONCE_SALT',       'put your unique phrase here' );
+define('AUTH_KEY', getenv("WP_AUTH_KEY"));
+define('SECURE_AUTH_KEY', getenv("WP_SECURE_AUTH_KEY"));
+define('LOGGED_IN_KEY', getenv("WP_LOGGED_IN_KEY"));
+define('NONCE_KEY', getenv("WP_NONCE_KEY"));
+define('AUTH_SALT', getenv("WP_AUTH_SALT"));
+define('SECURE_AUTH_SALT', getenv("WP_SECURE_AUTH_SALT"));
+define('LOGGED_IN_SALT', getenv("WP_LOGGED_IN_SALT"));
+define('NONCE_SALT', getenv("WP_NONCE_SALT"));
 
 /**#@-*/
 
@@ -71,7 +71,7 @@ define( 'NONCE_SALT',       'put your unique phrase here' );
  *
  * @link https://developer.wordpress.org/advanced-administration/wordpress/wp-config/#table-prefix
  */
-$table_prefix = 'wp_';
+getenv("WP_table_prefix") = 'wp_';
 
 /**
  * For developers: WordPress debugging mode.
