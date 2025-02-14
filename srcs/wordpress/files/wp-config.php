@@ -23,13 +23,13 @@
 define( 'DB_NAME', getenv('WP_DB_NAME') );
 
 /** Database username */
-define( 'DB_USER', getenv('WP_DB_USER') );
+define( 'DB_USER', getenv('DB_USER') );
 
 /** Database password */
-define( 'DB_PASSWORD', getenv('WP_DB_PASSWORD') );
+define( 'DB_PASSWORD', getenv('MYSQL_PASSWORD') );
 
 /** Database hostname */
-define( 'DB_HOST', 'localhost' );
+define( 'DB_HOST', 'mariadb' );
 
 /** Database charset to use in creating database tables. */
 define( 'DB_CHARSET', 'utf8' );
