@@ -20,6 +20,6 @@ RUN chown -R mysql:mysql /run/mysqld
 USER mysql
 WORKDIR /home/ecoma-ba/data
 
-RUN /home/ecoma-ba/data/setup.sh
+CMD [ "./setup.sh" ]
 
-CMD [ "mariadbd" ]
+HEALTHCHECK --timeout=3s CMD [ "mariadb", "-e", "SELECT 1;" ]

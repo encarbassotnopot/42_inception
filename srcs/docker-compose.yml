@@ -2,6 +2,7 @@ name: inception
 services:
   nginx:
     build: ./nginx
+    init: true
     env_file: .env
     networks:
       - my_net
@@ -14,6 +15,7 @@ services:
       - server.key
   wordpress:
     build: ./wordpress
+    init: true
     env_file: .env
     networks:
       - my_net
@@ -21,6 +23,7 @@ services:
       - web-files:/home/ecoma-ba/data
   mariadb:
     build: ./mariadb
+    init: true
     env_file: .env
     networks:
       - my_net
