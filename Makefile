@@ -25,8 +25,7 @@ rund:
 	$(DC) up -d
 
 clean:
-	$(DC) down
-	$(DC) rm 
+	$(DC) down -v
 
 re: clean all
 
