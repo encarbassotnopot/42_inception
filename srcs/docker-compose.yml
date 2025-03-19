@@ -34,7 +34,17 @@ networks:
       driver: bridge # is the default option anyway, but yeah
 volumes:
   web-files:
+    driver: local
+    driver_opts:
+      type: none
+      device: ${HOME}/data/web
+      o: bind
   db-data:
+    driver: local
+    driver_opts:
+      type: none
+      device: ${HOME}/data/db
+      o: bind
 secrets:
   server.crt:
     file: ./secrets/server.crt
