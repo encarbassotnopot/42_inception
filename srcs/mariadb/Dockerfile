@@ -22,4 +22,4 @@ WORKDIR /home/ecoma-ba/data
 
 CMD [ "./setup.sh" ]
 
-HEALTHCHECK --timeout=3s CMD [ "mariadb", "-e", "SELECT 1;" ]
+HEALTHCHECK --start-period=5s CMD [ "mariadb", "-e", "SELECT 1;" ]

@@ -25,7 +25,7 @@ rund:
 	$(DC) up -d
 
 clean:
-	$(DC) down -v
+	$(DC) down -v --remove-orphans
 
 re: clean all
 

@@ -10,6 +10,9 @@ services:
       - "443:443"
     volumes:
       - web-files:/home/ecoma-ba/data
+    depends_on:
+      wordpress:
+        condition: service_started
     secrets:
       - server.crt
       - server.key
@@ -21,6 +24,9 @@ services:
       - my_net
     volumes:
       - web-files:/home/ecoma-ba/data
+    depends_on:
+      mariadb:
+        condition: service_healthy
   mariadb:
     build: ./mariadb
     init: true
