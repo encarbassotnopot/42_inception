@@ -4,6 +4,7 @@ services:
     build: ./nginx
     init: true
     env_file: .env
+    restart: unless-stopped
     networks:
       - my_net
     ports:
@@ -13,6 +14,7 @@ services:
     depends_on:
       wordpress:
         condition: service_started
+        restart: true
     secrets:
       - server.crt
       - server.key
@@ -20,6 +22,7 @@ services:
     build: ./wordpress
     init: true
     env_file: .env
+    restart: unless-stopped
     networks:
       - my_net
     volumes:
@@ -27,17 +30,19 @@ services:
     depends_on:
       mariadb:
         condition: service_healthy
+        restart: true
   mariadb:
     build: ./mariadb
     init: true
     env_file: .env
+    restart: unless-stopped
     networks:
       - my_net
     volumes:
       - db-data:/home/ecoma-ba/data
 networks:
   my_net:
-      driver: bridge # is the default option anyway, but yeah
+      driver: bridge
 volumes:
   web-files:
     driver: local
